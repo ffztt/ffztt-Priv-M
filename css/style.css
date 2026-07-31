@@ -1,0 +1,207 @@
+:root {
+    --bg-body: #000000;
+    --card-bg: #111111;            /* fundo dos cards */
+    --card-bg-alt: #1a1a1a;        /* variação para abas */
+    --white: #ffffff;
+    --vibrant-gradient: linear-gradient(90deg, #f3915e 0%, #f9b88d 50%, #f9cbb0 100%);
+    --text-dark: #ffffff;          /* texto principal agora branco */
+    --text-gray: #aaaaaa;          /* texto secundário cinza claro */
+    --border: #333333;             /* bordas sutis */
+    --orange-primary: #f3915e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container { max-width: 480px; margin: 0 auto; padding: 10px; }
+
+/* ========== BARRA DE NAVEGAÇÃO ========== */
+.top-nav {
+    background: var(--card-bg);
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.logo { font-size: 1.2rem; font-weight: 800; color: #fff; }
+.logo span { color: var(--orange-primary); }
+
+/* ========== CARD DO PERFIL ========== */
+.profile-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.cover-image { 
+    height: 130px; 
+    width: 100%;
+    overflow: hidden; 
+    background-color: #333; 
+    position: relative;
+    display: block;
+}
+
+.cover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.profile-header { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 15px; margin-top: -45px; }
+
+.avatar-container {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 4px solid #111;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+}
+.profile-photo { width: 100%; height: 100%; object-fit: cover; }
+.profile-stats {
+    display: flex; gap: 12px; padding-bottom: 10px;
+    font-size: 0.8rem; color: var(--text-gray); font-weight: 600;
+}
+
+.profile-info { padding: 15px; }
+.display-name { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.verified { color: var(--orange-primary); margin-left: 2px; }
+.username { color: var(--text-gray); font-size: 0.85rem; margin-bottom: 8px; }
+.bio { font-size: 0.9rem; line-height: 1.4; margin-bottom: 10px; color: #ccc; }
+.read-more { color: var(--orange-primary); font-weight: 600; cursor: pointer; }
+
+.instagram-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: #ccc;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+/* ========== BOTÕES DE ASSINATURA ========== */
+.subscription-box { padding: 0 15px 20px; }
+.section-label { font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+.plan-btn {
+    width: 100%; padding: 16px; border-radius: 30px; border: none;
+    display: flex; justify-content: space-between; font-weight: 700;
+    margin-bottom: 10px; cursor: pointer;
+    background: var(--vibrant-gradient);
+    color: #222; /* texto escuro no gradiente (contraste) */
+    box-shadow: 0 4px 12px rgba(243, 145, 94, 0.3);
+}
+
+.promo-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 15px; color: var(--text-gray);
+}
+
+/* ========== ABAS ========== */
+.tabs-nav {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card-bg-alt);
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.tab {
+    flex: 1; padding: 15px; border: none; background: none;
+    color: var(--text-gray); font-weight: 700; cursor: pointer; font-size: 0.85rem;
+}
+.tab.active {
+    color: var(--orange-primary);
+    border-bottom: 3px solid var(--orange-primary);
+}
+
+/* ========== POST (FEED) ========== */
+.post {
+    background: var(--card-bg);
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.post-user-info { display: flex; align-items: center; padding: 12px; gap: 10px; }
+.post-name { font-weight: 700; color: #fff; }
+.post-avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+.post-more { margin-left: auto; color: var(--text-gray); }
+
+.feed-media-content {
+    position: relative; width: 100%;
+    aspect-ratio: 1/1;
+    background: #222;
+    overflow: hidden;
+}
+
+.media-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    width: 100%; height: 100%; 
+    gap: 2px; 
+}
+.media-card { width: 100%; height: 100%; overflow: hidden; }
+.blurred-img { width: 100%; height: 100%; object-fit: cover; filter: blur(2px); transform: scale(1.1); }
+
+.lock-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.lock-box {
+    width: 70px; height: 70px;
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid #444;
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.lock-box i { font-size: 1.8rem; color: #aaa; }
+.lock-stats {
+    display: flex; gap: 15px;
+    color: #fff;
+    font-size: 0.9rem; font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.post-actions {
+    display: flex; justify-content: space-between; padding: 15px;
+    font-size: 1.3rem; color: #aaa;
+}
+.left-actions { display: flex; gap: 20px; align-items: center; }
+.tip-icon {
+    border: 1.5px solid #aaa;
+    border-radius: 50%;
+    width: 25px; height: 25px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; font-weight: bold;
+    color: #aaa;
+}
+
+/* ========== BLOQUEIOS DE SEGURANÇA (mantenha no final ou em script.js) ========== */
+/* O código JavaScript de bloqueio estava no CSS, isso é inválido. Mova para o <script> ou script.js */
